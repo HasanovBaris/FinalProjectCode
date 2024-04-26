@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: trainingcenterapp
+  profiles:
+    active: ${ACTIVE_PROFILE:dev}
+    include:
+      - db
+      - cache
+  jpa:
+      open-in-view: true
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+server:
+  port: 8090
+

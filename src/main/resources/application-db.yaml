@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${DATABASE_HOSTNAME:localhost}:${DATABASE_PORT:3306}/check_data?createDatabaseIfNotExist=true
+    username: ${DATABASE_USERNAME:root}
+    password: ${DATABASE_PASSWORD:1234}
+    hikari:
+      max-lifetime: 1800000
+      connection-timeout: 10000
+      #connection-timeout: 60000
+      validation-timeout: 3000
+      idle-timeout: 60000
+      login-timeout: 5
+      #max-lifetime: 70000
+      maximum-pool-size: 30
+      minimum-idle: 10
+      read-only: false
+      leak-detection-threshold: 21000
+  jpa:
+    hibernate.ddl-auto: update
+    generate-ddl: true
+    show-sql: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+
+  liquibase:
+    enabled: false
+
+#logging:
+#  level:
+#    com.zaxxer.hikari: DEBUG
